@@ -7,6 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 
 @Service
 public class PalestraService {
@@ -18,6 +21,8 @@ public class PalestraService {
     }
 
     // Método para salvar palestras
+    @Transactional
+    @CacheEvict(value = "trilhaPalestras", allEntries = true)
     public Palestra salvarPalestra(Palestra palestra) {
         return palestraRepository.save(palestra);
     }
@@ -30,10 +35,13 @@ public class PalestraService {
     }
 
     // Exclusão com confirmação
+    @Transactional
+    @CacheEvict(value = "trilhaPalestras", allEntries = true)
     public void excluir(Long id) {
         Palestra palestra = buscarPalestraPorId(id);
         palestraRepository.delete(palestra);
     }
+    @Cacheable(value = "trilhaPalestras", key = "#pageable")
     public Page<Palestra> buscarTodos(Pageable pageable) {
         return palestraRepository.findAll(pageable);
     }
