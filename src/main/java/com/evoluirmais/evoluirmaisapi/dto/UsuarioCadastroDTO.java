@@ -33,10 +33,10 @@ public record UsuarioCadastroDTO(
         @NotBlank(message = "A senha é obrigatória.")
         String senha,
 
-        @NotNull(message = "A profissão é obrigatória.")
+        //@NotNull(message = "A profissão é obrigatória.")
         Profissao profissao,
 
-        @NotEmpty(message = "Selecione pelo menos uma habilidade.")
+        //@NotEmpty(message = "Selecione pelo menos uma habilidade.")
         Set<Habilidade> habilidades,
 
         Set<ObjetivoPessoal> objetivos
