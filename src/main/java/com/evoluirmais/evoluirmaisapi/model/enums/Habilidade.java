@@ -2,18 +2,18 @@ package com.evoluirmais.evoluirmaisapi.model.enums;
 
 public enum Habilidade {
 
+    COMUNICACAO,
+    PROATIVIDADE,
+    TRABALHO_EM_EQUIPE,
     LIDERANCA,
-    COMUNICACAO_INTERPESSOAL,
+    ORGANIZACAO,
     RESOLUCAO_DE_PROBLEMAS,
-    ADAPTABILIDADE_E_FLEXIBILIDADE,
+    ADAPTABILIDADE,
     GESTAO_DE_TEMPO,
-    RESILIENCIA,
-    NEGOCIACAO,
-    MENTORIA_E_TREINAMENTO;
-
+    NEGOCIACAO;
     /*
-    // Ferramentas e Hard Skills Versáteis
-    LINGUA_INGLESA_COMERCIAL,
+    // Ferramentas / Hard Skills
+    LINGUA_INGLESA,
     FERRAMENTAS_DE_CRM_OU_ERP,
     METODOLOGIAS_AGEIS_SCRUM,
     FINANCAS_PESSOAIS_E_CONTROLE,
