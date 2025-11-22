@@ -34,7 +34,6 @@ public class OpenApiConfig {
                         .description("API RESTful para gestão da Trilha de Conhecimento e usuários.")
                 )
                 .components(new io.swagger.v3.oas.models.Components().addSecuritySchemes("bearerAuth", createSecurityScheme()))
-
                 .addSecurityItem(securityRequirement);
     }
 }

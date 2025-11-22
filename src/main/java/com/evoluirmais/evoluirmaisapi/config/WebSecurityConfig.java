@@ -46,19 +46,19 @@ public class WebSecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        // 1. ENDPOINTS PUBLICOS
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/usuarios/cadastro").permitAll()
+                                // 1. ENDPOINTS PÚBLICOS
+                                .requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/api/usuarios/cadastro").permitAll()
 
-                        // 2. ENDPOINTS DE ADMINISTRAÇAO (requer autenticaçao)
-                        .requestMatchers("/api/admin/**").authenticated()
+                                // LIBERA AS ROTAS DO SWAGGER/OPENAPI
+                                .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
 
-                        // 3. ENDPOINTS DE CONSULTA DA TRILHA
-                        .requestMatchers("/api/trilha/**").authenticated()
-                        //.requestMatchers("/api/trilha/**").hasAuthority("ROLE_USER")
+                                // 2. ENDPOINTS DE ADMIN/TRILHA
+                                .requestMatchers("/api/admin/**").authenticated()
+                                .requestMatchers("/api/trilha/**").authenticated()
 
-                        // 4. FALLBACK
-                        .anyRequest().authenticated()
+                                // 3. FALLBACK
+                                .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
