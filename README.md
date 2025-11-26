@@ -1,5 +1,4 @@
 # Evoluir+ API
----
 
 O projeto **Evoluir+** é uma solução de tecnologia e inovação desenvolvida para mitigar os impactos da disrupção tecnológica e as mudanças no mercado de trabalho. Seu principal foco é combater o **etarismo** e criar oportunidades mais justas e inclusivas por meio da educação e requalificação, especialmente para profissionais que buscam requalificação a partir dos 30 anos.
 
